@@ -76,6 +76,8 @@ spec:
                 secretKeyRef:
                   name: {{ template "mastodon.redis.secretName" . }}
                   key: redis-password
+            - name: "BIND"
+              value: "::"
             - name: "PORT"
               value: {{ .Values.mastodon.web.port | quote }}
             {{- if .Values.mastodon.web.minThreads }}
